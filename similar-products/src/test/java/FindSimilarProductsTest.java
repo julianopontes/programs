@@ -24,12 +24,12 @@ public class FindSimilarProductsTest {
         new File(Paths.get("src", "test", "resources", "produtos-processados.txt").toString()),
         JsonProducts.class);
 
-    final Optional<SimilarResult> similarResult = new FindSimilarProducts(jsonProducts).find(8371L);
+    final Optional<SimilarResult> similarResult = new FindSimilarProducts(jsonProducts).find(8104L);
     assertTrue(similarResult.isPresent());
     final List<ProductSimilarity> similarities = similarResult.get().getSimilarities();
-    assertEquals(8291L, (long) similarities.get(0).getProduct().getId());
-    assertEquals(7613L, (long) similarities.get(1).getProduct().getId());
-    assertEquals(8080L, (long) similarities.get(2).getProduct().getId());
+    assertEquals(8314L, (long) similarities.get(0).getProduct().getId());
+    assertEquals(7516L, (long) similarities.get(1).getProduct().getId());
+    assertEquals(8301L, (long) similarities.get(2).getProduct().getId());
   }
 
   @Test

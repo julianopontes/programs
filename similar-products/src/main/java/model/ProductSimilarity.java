@@ -20,6 +20,6 @@ public class ProductSimilarity implements Comparable<ProductSimilarity> {
 
   @Override
   public int compareTo(final ProductSimilarity o) {
-    return Double.compare(similarity, o.similarity);
+    return Double.compare(similarity, o.similarity) * -1;
   }
 }
