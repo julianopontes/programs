@@ -7,7 +7,7 @@ public class BuscaProdutosSimilaresTest {
   public void shouldFindSimilarProducts() {
     BuscaProdutosSimilares.main(new String[]{
         Paths.get("src", "test", "resources", "produtos-processados.txt").toString(),
-        "8371"
+        "8104"
     });
   }
 
