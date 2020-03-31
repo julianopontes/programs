@@ -22,4 +22,9 @@ public class ProductSimilarity implements Comparable<ProductSimilarity> {
   public int compareTo(final ProductSimilarity o) {
     return Double.compare(similarity, o.similarity) * -1;
   }
+
+  @Override
+  public String toString() {
+    return "\n\t\tProductSimilarity{" + "similarity=" + similarity + ", product=" + product.getId() + '}';
+  }
 }

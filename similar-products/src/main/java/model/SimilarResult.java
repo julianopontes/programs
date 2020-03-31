@@ -19,4 +19,9 @@ public class SimilarResult {
   public List<ProductSimilarity> getSimilarities() {
     return similarities;
   }
+
+  @Override
+  public String toString() {
+    return "SimilarResult{" + "\n\tsearched=" + searched + ",\n\tsimilarities=" + similarities + "\n}";
+  }
 }

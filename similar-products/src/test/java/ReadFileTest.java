@@ -14,7 +14,7 @@ public class ReadFileTest {
   public void shouldReadFileAndParseProducts() {
 
     final Optional<JsonProducts> jsonProducts = readFile.execute(
-        new String[]{Paths.get("src", "test", "resources", "produtos-processados.txt").toString(), "8137"});
+        new String[]{Paths.get("src", "test", "resources", "produtos-processados.json").toString(), "8137"});
 
     assertTrue(jsonProducts.isPresent());
   }

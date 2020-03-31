@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class Product {
 
   private Long id;
@@ -37,5 +39,10 @@ public class Product {
 
   public void setTagsVector(int[] tagsVector) {
     this.tagsVector = tagsVector;
+  }
+
+  @Override
+  public String toString() {
+    return "Product{" + "id=" + id + "}";
   }
 }

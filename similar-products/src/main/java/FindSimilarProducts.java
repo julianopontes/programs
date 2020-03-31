@@ -27,6 +27,8 @@ class FindSimilarProducts {
 
       similarResult = new SimilarResult(search, getMostSimilar(productSimilarities));
 
+      System.out.println(similarResult);
+
     } else {
       System.err.println("Produto não encontrado!");
     }

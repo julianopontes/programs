@@ -1,17 +1,18 @@
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
+import model.JsonProducts;
+import model.ProductSimilarity;
+import model.SimilarResult;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
-import model.JsonProducts;
-import model.ProductSimilarity;
-import model.SimilarResult;
-import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class FindSimilarProductsTest {
 
@@ -21,7 +22,7 @@ public class FindSimilarProductsTest {
   public void shouldFindSimilarities() throws IOException {
 
     final JsonProducts jsonProducts = objectMapper.readValue(
-        new File(Paths.get("src", "test", "resources", "produtos-processados.txt").toString()),
+        new File(Paths.get("src", "test", "resources", "produtos-processados.json").toString()),
         JsonProducts.class);
 
     final Optional<SimilarResult> similarResult = new FindSimilarProducts(jsonProducts).find(8104L);
@@ -36,10 +37,21 @@ public class FindSimilarProductsTest {
   public void shouldNotFindSimilarities() throws IOException {
 
     final JsonProducts jsonProducts = objectMapper.readValue(
-        new File(Paths.get("src", "test", "resources", "produtos-processados.txt").toString()),
+        new File(Paths.get("src", "test", "resources", "produtos-processados.json").toString()),
         JsonProducts.class);
 
     final Optional<SimilarResult> similarResult = new FindSimilarProducts(jsonProducts).find(22222222L);
     assertFalse(similarResult.isPresent());
+  }
+
+  @Test
+  public void shouldFindSimilaritiesAndOnlyPrint() throws IOException {
+
+    final JsonProducts jsonProducts = objectMapper.readValue(
+      new File(Paths.get("src", "test", "resources", "produtos-processados.json").toString()),
+      JsonProducts.class);
+
+    final Optional<SimilarResult> similarResult = new FindSimilarProducts(jsonProducts).find(8104L);
+    assertTrue(similarResult.isPresent());
   }
 }

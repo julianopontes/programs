@@ -6,15 +6,15 @@ public class BuscaProdutosSimilaresTest {
   @Test
   public void shouldFindSimilarProducts() {
     BuscaProdutosSimilares.main(new String[]{
-        Paths.get("src", "test", "resources", "produtos-processados.txt").toString(),
-        "8104"
+        Paths.get("src", "test", "resources", "produtos-processados.json").toString(),
+        "8264"
     });
   }
 
   @Test
   public void shouldNotFindSimilarProducts() {
     BuscaProdutosSimilares.main(new String[]{
-        Paths.get("src", "test", "resources", "produtos-processados.txt").toString(),
+        Paths.get("src", "test", "resources", "produtos-processados.json").toString(),
         "1111111111"
     });
   }
